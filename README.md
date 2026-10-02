@@ -70,7 +70,7 @@ DNSSEC: unsigned
 
 **Observation (networkwalks.com):** The domain is registered with GoDaddy but hosted via HostGator name servers, and is locked against transfer/deletion. DNSSEC is **unsigned**, meaning DNS responses for this domain cannot be cryptographically validated.
 
-📸 `screenshots/01_whois-net.PNG`
+📸 `![Dashboard](screenshots/01_whois-net.PNG)`
 
 ---
 
