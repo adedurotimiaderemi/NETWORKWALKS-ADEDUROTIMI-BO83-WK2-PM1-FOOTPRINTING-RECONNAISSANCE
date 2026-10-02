@@ -70,7 +70,7 @@ DNSSEC: unsigned
 
 **Observation (networkwalks.com):** The domain is registered with GoDaddy but hosted via HostGator name servers, and is locked against transfer/deletion. DNSSEC is **unsigned**, meaning DNS responses for this domain cannot be cryptographically validated.
 
-📸 `![Dashboard](screenshots/01_whois-net.PNG)`
+📸![Dashboard](screenshots/01_whois-net.PNG)
 
 ---
 
@@ -96,7 +96,7 @@ Key results:
 
 **Observation:** The exact CMS and plugin versions are publicly exposed. An attacker could cross-reference `WordPress 7.1.1` and `WP Download Manager 3.3.58` against known CVE databases to check for unpatched vulnerabilities.
 
-📸 `screenshots/02_whatweb-net.PNG`
+📸![Dashboard](screenshots/02_whatweb-net.PNG)
 
 ---
 
@@ -117,7 +117,7 @@ Address: 192.232.216.135
 
 **Observation:** Confirms the domain resolves to a single A record, `192.232.216.135` — matching the IP identified independently by WhatWeb.
 
-📸 `screenshots/03_nslookup-net.PNG`
+📸![Dashboard](screenshots/03_nslookup-net.PNG)
 
 ---
 
@@ -142,7 +142,7 @@ server: Apache
 
 **Observation:** The response headers confirm and expand on WhatWeb's findings — the `wp-json` REST API endpoint is exposed and discloses a specific page ID (`/wp/v2/pages/53`), and `x-nginx-cache: WordPress` further fingerprints the caching layer/CMS stack.
 
-📸 `screenshots/04_curl-net.PNG`
+📸![Dashboard](screenshots/04_curl-net.PNG)
 
 ---
 
@@ -160,7 +160,7 @@ $ wafw00f networkwalks.com
 
 **Observation:** The site is actively protected by **ModSecurity (SpiderLabs)**. This tells an attacker that naive/unencoded payloads (e.g. basic SQLi or XSS strings) will likely be blocked, and that more evasive techniques would be required to bypass it — information that shapes attacker tooling choices.
 
-📸 `screenshots/05_wafw00f-net.PNG`
+📸![Dashboard](screenshots/05_wafw00f-net.PNG)
 
 ---
 
@@ -183,7 +183,7 @@ $ dnsrecon -d networkwalks.com
 
 **Observation:** DNSRecon confirms DNSSEC is not answering, exposes the SPF record (mail is routed through `websitewelcome.com`/IP `50.87.144.87`), and reveals **8 SRV records** pointing to `cpanelemaildiscovery.cpanel.net` across 8 backend IPs — strongly indicating the site is hosted on a shared cPanel/HostGator/Endurance International Group infrastructure.
 
-📸 `screenshots/06_dnsrecon-net.PNG`
+📸![Dashboard](screenshots/06_dnsrecon-net.PNG)
 
 ---
 
@@ -205,7 +205,8 @@ Result: Most premium sources (Bevigil, BufferOverrun, Brave, Tomba, Venacus, Vir
 
 **Observation:** theHarvester's value here was limited by missing API keys rather than by the target having no exposed OSINT footprint — this is a tooling limitation worth noting rather than a security finding. A follow-up run with valid API keys (or free sources like `crtsh`, `otx`, `hackertarget`) would give a more complete picture of exposed subdomains/emails.
 
-📸 `screenshots/theHarvester-net.PNG`, `screenshots/theHarvester-net1.PNG`
+![Dashboard](screenshots/theHarvester-net.PNG)
+![Dashboard](screenshots/theHarvester-net1.PNG)
 
 ---
 
@@ -240,7 +241,8 @@ After the ping scan, I opened the **Topology** tab, enabled the legend, and conf
 
 **Observation:** Only 2 of 256 possible addresses in the `/24` responded to ping, consistent with a small home/personal LAN. No unexpected or unidentified devices were found on the network at scan time.
 
-📸 `screenshots/09_zenmap.PNG`, `screenshots/09_zenmap1.PNG`
+![Dashboard](screenshots/09_zenmap.PNG)
+![Dashboard](screenshots/09_zenmap1.PNG)
 
 ---
 
